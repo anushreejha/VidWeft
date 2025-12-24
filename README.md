@@ -1,58 +1,78 @@
-# VidWeft 🚀
+# 🎬 VidWeft
 
-**Self-hosted AI Video Studio**  
-Text→Image→Voice→Subs→MP4. Docker-powered, fully local, 100% free.
+VidWeft is a lightweight **image-to-video creation tool** built with **Streamlit** and **MoviePy (v2)**.  
+It lets you combine images, voiceovers, and optional background music into a downloadable MP4 video.
 
-[![Streamlit](https://img.shields.io/badge/Streamlit-Powered-orange)](https://streamlit.io)
-[![Docker](https://img.shields.io/badge/Docker-Self_Hosted-blue)](https://www.docker.com)
-[![MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+---
 
 ## ✨ Features
 
-- 🎨 **AI Images** - Stable Diffusion (text-to-image/video)
-- 🎙️ **Voiceover** - Piper TTS (local text-to-speech)
-- ✍️ **Subtitles** - Whisper.cpp (auto speech-to-text)
-- 🎬 **Video Edit** - FFmpeg timeline + multi-track export
-- 🌐 **Web UI** - Streamlit dashboard (browser-based)
+- 🖼️ Upload multiple images and convert them into a video
+- 🎙️ Add a voiceover audio track
+- 🎵 Optional background music with volume control
+- ⬇️ Download the generated video directly from the UI
+- ⚡ Built on MoviePy v2 (modern, Python 3.13 compatible)
 
-## 🚀 Quick Start
+---
+
+## 🧱 Tech Stack
+
+- **Python** 3.12+
+- **Streamlit** – UI
+- **MoviePy v2** – Video & audio processing
+- **Pillow** – Image handling
+- **Edge TTS / Faster-Whisper** – (optional, future extensions)
+
+---
+
+## 📁 Project Structure
 
 ```
-git clone https://github.com/YOURUSERNAME/vidweft
-cd vidweft
-docker compose up -d
+VidWeft/
+├── vidweft/
+│   └── app.py
+├── requirements.txt
+├── README.md
+└── venv/
 ```
 
-Open http://localhost:8501
+## ⚙️ Setup Instructions
 
+### 1️⃣ Clone the repository
 
-## 📱 Deploy Free (Internal Team)
+```
+git clone <your-repo-url>
+cd VidWeft
+```
 
-1. Push to GitHub
-2. Render.com → New Web Service → Python → `streamlit run app.py --server.port $PORT`
-3. Free: 750 hours/month, password protected
+### 2️⃣ Create & activate virtual environment
 
-## 🛠 Stack
+```
+python -m venv venv
+source venv/bin/activate   # macOS / Linux
+# venv\Scripts\activate    # Windows
+```
 
-| Feature | Tool | Local-First |
-|---------|------|-------------|
-| AI Images | Stable Diffusion | ✅ |
-| Subtitles | Whisper.cpp | ✅ |
-| Voiceover | Piper TTS | ✅ |
-| Video | FFmpeg | ✅ |
-| UI | Streamlit | ✅ |
+### 3️⃣ Install dependencies
 
-## 💻 Hardware
-- MacBook M2 / 16GB RAM (tested)
-- Docker + Metal GPU acceleration
+```
+pip install -r requirements.txt
+```
 
-## 🤝 Contributing
-Fork → PR. Issues welcome!
+## ▶️ Run the App
 
-## 📄 License
-MIT - Use freely in your company/projects.
+```
+streamlit run vidweft/app.py
+```
 
-[Built with ❤️ for business teams - Zero cloud costs - Privacy-first]
+Then open the URL shown in the terminal (usually http://localhost:8501).
 
-**VidWeft: Weave videos locally**
+## 🛠️ How It Works
 
+1. Upload images (PNG / JPG)
+2. Upload a voiceover audio file (MP3 / WAV)
+3. (Optional) Upload background music
+4. Click Generate Video
+5. Download the generated MP4
+
+**Note:** Each image is currently displayed for 3 seconds (can be customized in code).
